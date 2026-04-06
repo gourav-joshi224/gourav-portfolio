@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Syne } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
 import { SITE_HANDLE, SITE_NAME, SITE_URL } from "@/lib/config";
 import "./globals.css";
 
-const sans = Syne({
-  variable: "--font-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -98,9 +100,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${mono.variable}`}
+      className={`${jakarta.variable} ${mono.variable}`}
     >
-      <body className="min-h-screen bg-bg text-primary antialiased scrollbar-thin scrollbar-track-surface scrollbar-thumb-accent/30">
+      <body className="min-h-screen overflow-x-hidden bg-bg text-text1 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

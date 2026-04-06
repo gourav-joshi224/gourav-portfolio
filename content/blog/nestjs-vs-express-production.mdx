@@ -1,0 +1,49 @@
+---
+title: "NestJS vs Express: What I learned after 2 years in production"
+date: "2025-04-03"
+description: "A practical breakdown of why we chose NestJS at Unthinkable Solutions and what we gained - and lost."
+tags: ["NestJS", "Node.js", "backend", "architecture"]
+published: true
+slug: "nestjs-vs-express-production"
+---
+
+## Why this comparison matters
+
+After shipping three production systems at Unthinkable Solutions using both
+Express and NestJS, I have some strong opinions about where each one helps and
+where each one starts to hurt.
+
+Express gives you raw flexibility. NestJS gives you structure. That difference
+does not matter much in week one. It matters a lot once several engineers are
+touching the same codebase, shipping features in parallel, and trying to keep
+the system understandable six months later.
+
+## What Express does well
+
+Express is dead simple. You can have a working API in minutes and the mental
+model is small enough that any Node.js developer can contribute immediately.
+
+That simplicity is still valuable. For prototypes, internal tools, and narrow
+services, Express often keeps you moving faster because there is very little
+framework ceremony between the idea and the implementation.
+
+## Where NestJS wins at scale
+
+The dependency injection system alone saved us weeks of refactoring. Teams can
+split work into clear modules, test services in isolation, and keep routing,
+validation, business logic, and infrastructure concerns from bleeding into each
+other.
+
+The opinionated architecture also helps during onboarding. New developers can
+usually predict where a controller, provider, DTO, or guard should live before
+they even open the project.
+
+## The tradeoff
+
+NestJS is not free. You accept more abstraction, more conventions, and more
+framework surface area. If the team does not need that structure yet, the
+overhead can feel unnecessary.
+
+My rule is simple: if the project is expected to stay small, Express is usually
+enough. If the project needs to survive team growth, multiple domains, and long
+term maintenance, NestJS starts paying for itself quickly.
