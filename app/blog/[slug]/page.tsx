@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import BlogBody from "@/components/blog/BlogBody";
+import BlogHeader from "@/components/blog/BlogHeader";
 import { SITE_URL } from "@/lib/config";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+
+export function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return {};
@@ -28,22 +35,17 @@ export async function generateMetadata({
       tags: post.tags,
     },
     alternates: {
-      canonical: `${SITE_URL}/blog/${params.slug}`,
+      canonical: `${SITE_URL}/blog/${post.slug}`,
     },
   };
 }
 
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({ slug: post.slug }));
-}
-
-export default async function BlogPostPage({
+export default function BlogPostPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const post = await getPostBySlug(params.slug);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
@@ -53,31 +55,45 @@ export default async function BlogPostPage({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    author: { "@type": "Person", name: "Gourav Joshi" },
-    datePublished: post.date,
     description: post.description,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: "Gourav Joshi",
+      url: SITE_URL,
+    },
     url: `${SITE_URL}/blog/${post.slug}`,
   };
 
   return (
-    <article className="mx-auto min-h-screen max-w-3xl px-6 py-24 md:px-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <header className="border-b border-border pb-8">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-          Blog
-        </p>
-        <h1 className="mt-4 font-sans text-4xl font-bold text-primary md:text-5xl">
-          {post.title}
-        </h1>
-        <p className="mt-4 font-mono text-sm text-muted">{post.description}</p>
-      </header>
-      <section className="py-10 font-mono text-sm leading-7 text-muted">
-        Blog content rendering is ready for `@/lib/posts` once MDX post loading is
-        added.
-      </section>
-    </article>
+    <main className="min-h-screen bg-bg px-6 pb-24 pt-28 md:px-8">
+      <div className="mx-auto max-w-[1200px]">
+        <a
+          href="/blog"
+          className="mb-12 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3 transition-colors duration-200 hover:text-accent"
+        >
+          ← back to blog
+        </a>
+
+        <article className="max-w-3xl">
+          <BlogHeader post={post} />
+          <BlogBody source={post.content} />
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          />
+
+          <div className="mt-16 border-t border-border pt-8">
+            <a
+              href="/blog"
+              className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3 transition-colors duration-200 hover:text-accent"
+            >
+              ← all posts
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
   );
 }

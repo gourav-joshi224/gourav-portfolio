@@ -2,22 +2,24 @@
 
 import { motion } from "framer-motion";
 
-import { GlassCard } from "@/components/GlassCard";
 import { SectionLabel } from "@/components/SectionLabel";
 import { fadeUp, stagger } from "@/lib/animations";
 
 const terminalLines = [
-  "$ whoami",
-  "gourav_joshi",
-  "",
-  "$ cat status.txt",
-  "Available for opportunities",
-  "",
-  "$ uptime",
-  "3+ years in production",
-  "",
-  "$ echo $LOCATION",
-  "India 🇮🇳",
+  { text: "$ whoami", tone: "command" },
+  { text: "gourav_joshi", tone: "output" },
+  { text: "$ cat role.txt", tone: "command" },
+  { text: "Backend Developer", tone: "output" },
+  { text: "$ cat status.txt", tone: "command" },
+  { text: "Available for opportunities", tone: "output" },
+  { text: "$ uptime", tone: "command" },
+  { text: "3+ years in production", tone: "output" },
+  { text: "$ git log --oneline -3", tone: "command" },
+  { text: "a3f8b21 feat: AI interview evaluation engine", tone: "log" },
+  { text: "b92c441 fix: webhook retry with exponential backoff", tone: "log" },
+  { text: "c4d1093 perf: 30% query optimization on booking system", tone: "log" },
+  { text: "$ echo $LOCATION", tone: "command" },
+  { text: "India 🇮🇳", tone: "output" },
 ];
 
 export function About() {
@@ -28,81 +30,72 @@ export function About() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 px-6 py-32 md:px-20 md:scroll-mt-28"
+      className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
     >
-      <div className="grid grid-cols-1 gap-16 md:grid-cols-5">
-        <div className="md:col-span-3">
-          <motion.div variants={fadeUp}>
-            <SectionLabel label="about_me" />
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            custom={1}
-            className="mt-4 font-sans text-3xl font-bold text-primary md:text-4xl"
-          >
-            The engineer behind the architecture.
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            custom={2}
-            className="mt-4 font-sans"
-          >
-            <p className="mb-6 border-l border-accent/15 pl-4 text-base leading-[1.9] text-neutral-400">
-              I&apos;m Gourav — a backend developer currently at Unthinkable
-              Solutions, where I architect APIs and microservices that handle
-              real-world scale.
-            </p>
-            <p className="mb-6 border-l border-accent/15 pl-4 text-base leading-[1.9] text-neutral-400">
-              I care deeply about system design: clean separation of concerns,
-              minimal latency, and code that the next developer won&apos;t curse
-              me for.
-            </p>
-            <p className="border-l border-accent/15 pl-4 text-base leading-[1.9] text-neutral-400">
-              When I&apos;m not pushing commits, I&apos;m pursuing my M.Tech at
-              BITS Pilani and exploring everything from distributed systems to
-              database internals.
-            </p>
-          </motion.div>
-        </div>
+      <div className="mx-auto max-w-[900px]">
+        <motion.div variants={fadeUp}>
+          <SectionLabel label="about_me" />
+        </motion.div>
 
-        <div className="md:col-span-2">
-          <GlassCard className="p-6 md:p-8" index={3}>
-            <div className="mb-4 flex items-center gap-2 border-b border-border pb-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-amber/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
-              <span className="ml-2 font-mono text-xs text-muted">
+        <motion.h2
+          variants={fadeUp}
+          custom={1}
+          className="pull-quote mt-6 max-w-[680px] font-display text-[clamp(2.6rem,5vw,3.5rem)] font-bold text-text1"
+        >
+          I&apos;ve shipped backend systems for government AI platforms, trade
+          fair booking engines, and AI interview tools. I care about the code
+          that runs behind the scenes.
+        </motion.h2>
+
+        <div className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
+          <motion.div variants={fadeUp} custom={2}>
+            <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
+              At Unthinkable Solutions I design and build the backend
+              infrastructure, from NestJS microservices to PostgreSQL schemas
+              and event-driven pipelines, for systems that need to stay up.
+            </p>
+            <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
+              I&apos;m obsessed with the invisible: latency that nobody notices,
+              database queries that never timeout, APIs that fail gracefully.
+              Clean code isn&apos;t aesthetic preference; it&apos;s risk
+              management.
+            </p>
+            <p className="body-text border-l-2 border-border pl-4 text-base font-normal text-text2">
+              I&apos;m also mid-way through an M.Tech at BITS Pilani, which
+              means I spend evenings reading distributed systems papers instead
+              of watching Netflix. Make of that what you will.
+            </p>
+          </motion.div>
+
+          <motion.div variants={fadeUp} custom={3} className="site-panel p-5 md:p-6">
+            <div className="mb-5 flex items-center gap-2 border-b border-border pb-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[rgba(0,255,135,0.7)]" />
+              <span className="ml-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
                 gourav@portfolio:~
               </span>
             </div>
 
-            <div className="space-y-1 font-mono text-xs leading-7">
-              {terminalLines.map((line, index) => {
-                if (!line) {
-                  return <div key={`empty-${index}`} className="h-2" />;
-                }
-
-                const isCommand = line.startsWith("$");
-
-                return (
-                  <motion.div
-                    key={line}
-                    variants={fadeUp}
-                    custom={index * 2}
-                    className={
-                      isCommand
-                        ? "text-accent"
-                        : line === "Available for opportunities"
-                          ? "text-primary"
-                          : "text-muted"
-                    }
-                  >
-                    {line}
-                  </motion.div>
-                );
-              })}
+            <div className="space-y-2 font-mono text-[0.78rem] leading-7">
+              {terminalLines.map((line, index) => (
+                <motion.div
+                  key={`${line.text}-${index}`}
+                  variants={fadeUp}
+                  custom={index * 0.35}
+                  className={
+                    line.tone === "command"
+                      ? "text-accent"
+                      : line.tone === "output"
+                        ? "text-text1"
+                        : "text-text2"
+                  }
+                >
+                  {line.text}
+                </motion.div>
+              ))}
             </div>
-          </GlassCard>
+          </motion.div>
         </div>
       </div>
     </motion.section>

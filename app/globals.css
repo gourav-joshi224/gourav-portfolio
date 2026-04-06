@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #080808;
+  --surface: #0e0e0e;
+  --surface-2: #141414;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(0, 255, 135, 0.3);
+  --text-1: #f0f0f0;
+  --text-2: #a0a0a0;
+  --text-3: #555555;
+  --accent: #00ff87;
+  --accent-2: #c8ff00;
+  --accent-dim: rgba(0, 255, 135, 0.07);
+  --text-xs: 0.72rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.2rem;
+  --text-2xl: 1.8rem;
+  --text-4xl: 3.5rem;
+  --text-6xl: 5.5rem;
+  --text-8xl: 8rem;
+}
+
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 * {
@@ -29,20 +52,96 @@ html {
 
 body {
   min-height: 100vh;
-  background: #080808;
-  color: #e8e8e8;
+  background:
+    radial-gradient(circle at top right, rgba(0, 255, 135, 0.08), transparent 26%),
+    radial-gradient(circle at top left, rgba(200, 255, 0, 0.04), transparent 18%),
+    var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-display), sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+.hero-headline {
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.pull-quote {
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.body-text {
+  letter-spacing: 0;
+  line-height: 1.85;
+}
+
+a {
+  color: inherit;
+}
+
+.site-panel {
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    var(--surface);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.site-panel:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 28px rgba(0, 255, 135, 0.06);
+}
+
+.site-button-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.site-button-secondary {
+  border: 1px solid var(--border);
+  color: var(--text-1);
+}
+
+.grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 0.9px, transparent 0.9px);
+  background-size: 26px 26px;
+}
+
+.accent-grid {
+  background-image: radial-gradient(rgba(0, 255, 135, 0.32) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.status-dot {
+  animation: pulse-soft 2.8s ease-in-out infinite;
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 24s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes marquee {
@@ -52,5 +151,102 @@ body {
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+.prose-blog h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.8rem, 2vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  margin-top: 3rem;
+  margin-bottom: 1.1rem;
+}
+
+.prose-blog h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-blog p {
+  font-family: var(--font-display), sans-serif;
+  color: var(--text-2);
+  line-height: 1.9;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.prose-blog strong {
+  color: var(--text-1);
+}
+
+.prose-blog a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 135, 0.3);
+  transition: border-color 0.2s;
+}
+
+.prose-blog a:hover {
+  border-color: var(--accent);
+}
+
+.prose-blog code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: rgba(0, 255, 135, 0.08);
+  padding: 2px 6px;
+}
+
+.prose-blog pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.prose-blog pre code {
+  background: transparent;
+  color: var(--text-1);
+  padding: 0;
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  color: var(--text-2);
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.9;
+}
+
+.prose-blog li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-blog blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  color: var(--text-3);
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+.prose-blog hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+@media (max-width: 640px) {
+  .prose-blog pre {
+    padding: 1rem;
   }
 }
