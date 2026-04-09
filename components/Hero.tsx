@@ -1,7 +1,6 @@
 "use client";
 
-import { animate, motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 import { fadeUp, stagger } from "@/lib/animations";
 
@@ -33,45 +32,19 @@ const tickerItems = [
   "Firebase",
 ];
 
-function StatCounter({
-  value,
-  suffix = "",
-  label,
-}: {
-  value: number;
-  suffix?: string;
-  label: string;
-}) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.8 });
-  const [displayValue, setDisplayValue] = useState(0);
+const stats = [
+  { value: "5+", label: "Production Systems" },
+  { value: "3", label: "Govt. Platforms" },
+  { value: "3+", label: "Years in Production" },
+];
 
-  useEffect(() => {
-    if (!isInView) {
-      return;
-    }
-
-    const controls = animate(0, value, {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: (latest) => setDisplayValue(Math.round(latest)),
-    });
-
-    return () => controls.stop();
-  }, [isInView, value]);
-
-  return (
-    <div ref={ref} className="min-w-[96px]">
-      <div className="font-display text-4xl font-semibold leading-none text-accent">
-        {displayValue}
-        {suffix}
-      </div>
-      <div className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
-        {label}
-      </div>
-    </div>
-  );
-}
+const projects = [
+  "ITPO Booking",
+  "AI Kosha",
+  "DPDP",
+  "UMANG",
+  "Interview Instructor",
+];
 
 export function Hero() {
   return (
@@ -141,12 +114,42 @@ export function Hero() {
             custom={4}
             className="mt-8 flex flex-wrap items-start gap-6"
           >
-            <StatCounter value={3} suffix="+" label="years experience" />
-            <div className="hidden h-14 w-px bg-border sm:block" />
-            <StatCounter value={20} suffix="%" label="latency reduced" />
-            <div className="hidden h-14 w-px bg-border sm:block" />
-            <StatCounter value={3} label="production systems" />
+            {stats.map((stat, index) => (
+              <div key={stat.label} className="min-w-[96px]">
+                <div
+                  className={`font-display text-3xl font-bold leading-none ${
+                    index === 0 ? "text-accent" : "text-text1"
+                  }`}
+                >
+                  {stat.value}
+                </div>
+                <div className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
+
+          <div className="mb-0 mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-text3">
+              Shipped for →
+            </span>
+            {projects.map((project, index) => {
+              const isGovernmentProject = project === "DPDP" || project === "UMANG" || project === "ITPO Booking" || project === "AI Kosha";
+
+              return (
+                <span key={project} className="inline-flex items-center gap-2">
+                  <span className={isGovernmentProject ? "text-accent" : "text-text3"}>
+                    {isGovernmentProject ? "●" : "○"}
+                  </span>
+                  <span className="font-mono text-xs text-text3">{project}</span>
+                  {index < projects.length - 1 ? (
+                    <span className="text-text3">·</span>
+                  ) : null}
+                </span>
+              );
+            })}
+          </div>
 
           <motion.div
             variants={fadeUp}
