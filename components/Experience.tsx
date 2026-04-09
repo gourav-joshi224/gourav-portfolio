@@ -84,7 +84,7 @@ export function Experience() {
       variants={stagger}
       className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
     >
-      <div className="mx-auto max-w-[1200px]">
+      <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
           <SectionLabel label="experience" />
         </motion.div>
@@ -99,6 +99,7 @@ export function Experience() {
         <div className="mt-14 space-y-4">
           {entries.map((entry, index) => {
             const isOpen = openEntry === entry.id;
+            const panelId = `${entry.id}-panel`;
 
             return (
               <motion.div
@@ -109,6 +110,8 @@ export function Experience() {
               >
                 <button
                   type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpenEntry((current) => (current === entry.id ? "" : entry.id))}
                   className="flex w-full items-center justify-between gap-4 p-6 text-left"
                 >
@@ -122,11 +125,11 @@ export function Experience() {
                   </div>
 
                   <div className="flex items-center gap-5">
-                    <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
+                    <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2">
                       {entry.period}
                     </span>
                     <span
-                      className={`font-mono text-xl text-text3 transition-transform duration-300 ${
+                      className={`font-mono text-xl text-text2 transition-transform duration-300 ${
                         isOpen ? "rotate-45 text-accent" : ""
                       }`}
                     >
@@ -138,6 +141,7 @@ export function Experience() {
                 <AnimatePresence initial={false}>
                   {isOpen ? (
                     <motion.div
+                      id={panelId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

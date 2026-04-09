@@ -16,9 +16,14 @@ const tickerItems = [
   "NestJS",
   "PostgreSQL",
   "TypeScript",
+  "Python",
   "Redis",
   "Docker",
   "AWS",
+  "Lambda",
+  "S3",
+  "SNS",
+  "SQS",
   "Microservices",
   "REST APIs",
   "TypeORM",
@@ -79,9 +84,15 @@ export function Hero() {
       className="relative min-h-screen scroll-mt-24 overflow-hidden px-6 pb-24 pt-24 md:px-8 md:scroll-mt-28"
     >
       <div className="grid-dots absolute inset-0 opacity-60" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,255,135,0.12),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(200,255,0,0.05),transparent_18%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at top right, var(--bg-glow-1), transparent 24%), radial-gradient(circle at bottom left, var(--bg-glow-2), transparent 18%)",
+        }}
+      />
 
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)]">
+      <div className="site-shell relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)]">
         <div className="max-w-[680px]">
           <motion.div
             variants={fadeUp}
@@ -94,6 +105,7 @@ export function Hero() {
           <motion.h1
             variants={fadeUp}
             custom={1}
+            aria-label="I build systems that scale."
             className="hero-headline mt-8 space-y-2 font-display font-bold"
           >
             {heroLines.map((line, index) => (
@@ -120,9 +132,8 @@ export function Hero() {
             custom={3}
             className="body-text mt-8 max-w-xl text-lg font-normal text-text2"
           >
-            Backend developer at Unthinkable Solutions. 3+ years shipping NestJS
-            APIs, PostgreSQL systems, and event-driven architecture at
-            production scale.
+            Backend developer with 3+ years shipping NestJS APIs, PostgreSQL
+            systems, and event-driven architecture for production workloads.
           </motion.p>
 
           <motion.div
@@ -155,7 +166,7 @@ export function Hero() {
               download
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="site-button-secondary px-6 py-3 font-mono text-[0.72rem] uppercase tracking-[0.16em] transition-colors duration-200 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
+              className="site-button-secondary px-6 py-3 font-mono text-[0.72rem] uppercase tracking-[0.16em] transition-colors duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
             >
               Download CV
             </motion.a>
@@ -165,7 +176,10 @@ export function Hero() {
         <motion.div variants={fadeUp} custom={6} className="site-panel relative overflow-hidden p-6 lg:p-8">
           <div className="accent-grid absolute inset-x-8 top-8 h-40 opacity-60" />
           <div className="relative min-h-[420px]">
-            <div className="pointer-events-none absolute inset-x-0 top-0 font-display text-[8rem] font-semibold leading-none tracking-[-0.08em] text-[rgba(255,255,255,0.07)] sm:text-[9rem]">
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 font-display text-[8rem] font-semibold leading-none tracking-[-0.08em] sm:text-[9rem]"
+              style={{ color: "var(--hero-mark)" }}
+            >
               GJ
             </div>
 
@@ -202,12 +216,16 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-border bg-[rgba(8,8,8,0.78)] py-4 backdrop-blur-sm">
+      <div
+        className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-border py-4 backdrop-blur-sm"
+        style={{ background: "var(--marquee-bg)" }}
+      >
         <div className="marquee-track">
           {[...tickerItems, ...tickerItems].map((item, index) => (
             <span
               key={`${item}-${index}`}
-              className="pr-8 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[#222222]"
+              className="pr-8 font-mono text-[0.72rem] uppercase tracking-[0.12em]"
+              style={{ color: "var(--marquee-text)" }}
             >
               {item} ·
             </span>

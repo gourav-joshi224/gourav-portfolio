@@ -15,10 +15,10 @@ export default function TagFilter({ tags, activeTag }: Props) {
     <div className="flex flex-wrap items-center gap-2 md:justify-end">
       <Link
         href="/blog"
-        className={`px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.14em] transition-all duration-200 ${
+        className={`rounded-full px-3.5 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] transition-all duration-200 ${
           activeTag
-            ? "border border-border text-text3 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
-            : "border border-[rgba(0,255,135,0.3)] bg-accentDim text-accent"
+            ? "border border-border text-text2 hover:border-[color:var(--border-hover)] hover:text-accent"
+            : "border border-[color:var(--border-hover)] bg-accentDim text-accent"
         }`}
       >
         All
@@ -31,10 +31,10 @@ export default function TagFilter({ tags, activeTag }: Props) {
           <Link
             key={tag.label}
             href={`/blog?tag=${encodeURIComponent(tag.label)}`}
-            className={`px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.14em] transition-all duration-200 ${
+            className={`rounded-full px-3.5 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] transition-all duration-200 ${
               isActive
-                ? "border border-[rgba(0,255,135,0.3)] bg-accentDim text-accent"
-                : "border border-border text-text3 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
+                ? "border border-[color:var(--border-hover)] bg-accentDim text-accent"
+                : "border border-border text-text2 hover:border-[color:var(--border-hover)] hover:text-accent"
             }`}
           >
             {tag.label} ({tag.count})

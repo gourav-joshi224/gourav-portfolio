@@ -61,7 +61,7 @@ export function Projects() {
       variants={stagger}
       className="scroll-mt-24 bg-transparent px-6 py-28 md:px-8 md:scroll-mt-28"
     >
-      <div className="mx-auto max-w-[1200px]">
+      <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
           <SectionLabel label="key_projects" />
         </motion.div>
@@ -87,7 +87,7 @@ export function Projects() {
               key={project.name}
               variants={fadeUp}
               custom={index + 3}
-              className="group grid gap-8 border-t border-border py-12 transition-colors duration-300 hover:border-[rgba(0,255,135,0.3)] lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]"
+              className="group grid gap-8 border-t border-border py-12 transition-colors duration-300 hover:border-[color:var(--border-hover)] lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]"
             >
               <div>
                 <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-text3">
