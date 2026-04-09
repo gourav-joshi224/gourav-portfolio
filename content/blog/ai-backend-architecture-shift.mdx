@@ -10,7 +10,7 @@ slug: "ai-backend-architecture-shift"
 
 The first AI backend I pushed looked clean on paper: request comes in, model call goes out, response comes back. It broke the moment latency spiked, retrieval pulled noisy context, and the retry returned a different answer for the same input.
 
-That failure changed the way I design backend systems. I stopped treating AI as a smart API dependency and started treating it as a probabilistic workflow that needs orchestration, state, and controls. That shift showed up clearly in work I shipped at Unthinkable Solutions, especially on systems like Interview Instructor and AI Kosha.
+That failure changed the way I design backend systems. I stopped treating AI as a smart API dependency and started treating it as a probabilistic workflow that needs orchestration, state, and controls. That shift showed up clearly in production work I shipped on systems like Interview Instructor and AI Kosha.
 
 ## The API is no longer the system
 

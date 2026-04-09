@@ -50,9 +50,9 @@ export function About() {
         <div className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
           <motion.div variants={fadeUp} custom={2}>
             <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
-              At Unthinkable Solutions I design and build the backend
-              infrastructure, from NestJS microservices to PostgreSQL schemas
-              and event-driven pipelines, for systems that need to stay up.
+              I design and build backend infrastructure, from NestJS
+              microservices to PostgreSQL schemas and event-driven pipelines,
+              for systems that need to stay up.
             </p>
             <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
               I&apos;m obsessed with the invisible: latency that nobody notices,

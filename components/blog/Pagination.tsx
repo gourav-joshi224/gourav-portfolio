@@ -24,20 +24,20 @@ export default function Pagination({ currentPage, totalPages, tag }: Props) {
       {currentPage > 1 ? (
         <Link
           href={buildPageHref(currentPage - 1, tag)}
-          className="border border-border px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3 transition-all duration-200 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
+          className="rounded-full border border-border px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text2 transition-all duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
         >
           ← prev
         </Link>
       ) : null}
 
-      <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+      <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text2">
         {currentPage} / {totalPages}
       </span>
 
       {currentPage < totalPages ? (
         <Link
           href={buildPageHref(currentPage + 1, tag)}
-          className="border border-border px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3 transition-all duration-200 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
+          className="rounded-full border border-border px-4 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text2 transition-all duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
         >
           next →
         </Link>

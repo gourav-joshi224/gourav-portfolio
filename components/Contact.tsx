@@ -30,7 +30,7 @@ export function Contact() {
       variants={stagger}
       className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
     >
-      <div className="mx-auto max-w-[1200px]">
+      <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
           <SectionLabel label="contact" />
         </motion.div>
@@ -61,7 +61,7 @@ export function Contact() {
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="w-fit border-b border-transparent font-mono text-sm text-text2 transition-colors duration-200 hover:border-[rgba(0,255,135,0.35)] hover:text-accent"
+                  className="w-fit border-b border-transparent font-mono text-sm text-text2 transition-colors duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
                 >
                   {link.label}
                 </motion.a>

@@ -1,17 +1,45 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
+import { ThemeToggle } from "@/components/ThemeToggle";
 import BlogCard from "@/components/blog/BlogCard";
 import Pagination from "@/components/blog/Pagination";
 import TagFilter from "@/components/blog/TagFilter";
-import { SITE_URL } from "@/lib/config";
+import {
+  BLOG_DESCRIPTION,
+  BLOG_TITLE,
+  DEFAULT_OG_IMAGE,
+  SITE_NAME,
+  buildAbsoluteUrl,
+} from "@/lib/config";
 import { getAllPosts, getAllTags, getPaginatedPosts, getPostsByTag } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Thoughts on backend engineering, Node.js, NestJS, PostgreSQL, system design, and everything I learn shipping production systems.",
+  title: BLOG_TITLE,
+  description: BLOG_DESCRIPTION,
   alternates: {
-    canonical: `${SITE_URL}/blog`,
+    canonical: buildAbsoluteUrl("/blog"),
+  },
+  openGraph: {
+    type: "website",
+    url: buildAbsoluteUrl("/blog"),
+    title: `${BLOG_TITLE} | ${SITE_NAME}`,
+    description: BLOG_DESCRIPTION,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: buildAbsoluteUrl(DEFAULT_OG_IMAGE),
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} Blog`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BLOG_TITLE} | ${SITE_NAME}`,
+    description: BLOG_DESCRIPTION,
+    images: [buildAbsoluteUrl(DEFAULT_OG_IMAGE)],
   },
 };
 
@@ -46,8 +74,18 @@ export default function BlogPage({ searchParams }: Props) {
   }));
 
   return (
-    <main className="min-h-screen bg-bg px-6 pb-24 pt-28 md:px-8">
-      <div className="mx-auto max-w-[1200px]">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-6 pb-24 pt-28 md:px-8">
+      <div className="site-shell mx-auto">
+        <div className="mb-10 flex items-center justify-between gap-4 border-b border-border pb-5">
+          <Link
+            href="/"
+            className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 transition-colors duration-200 hover:text-accent"
+          >
+            ← portfolio
+          </Link>
+          <ThemeToggle />
+        </div>
+
         <p className="mb-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">
           {"// blog"}
         </p>
@@ -57,7 +95,7 @@ export default function BlogPage({ searchParams }: Props) {
             <h1 className="font-display text-[clamp(3rem,6vw,5rem)] font-bold tracking-[-0.05em] text-text1">
               Writing.
             </h1>
-            <p className="body-text mt-4 max-w-2xl text-base font-normal text-text2">
+            <p className="body-text mt-4 max-w-2xl text-[1.02rem] font-normal leading-[1.86] text-[color:var(--text-2-strong)] md:text-base">
               {totalPosts} post{totalPosts !== 1 ? "s" : ""} on backend
               engineering, system design, and the production lessons behind the
               work.

@@ -9,14 +9,14 @@ const skillGroups = [
   {
     label: "Backend Core",
     primary: ["NestJS", "Node.js", "PostgreSQL", "TypeScript"],
-    secondary: ["Express", "TypeORM", "REST APIs", "Redis"],
+    secondary: ["Python", "Express", "TypeORM", "REST APIs", "Redis"],
     tertiary: ["JWT", "OAuth2", "RBAC"],
   },
   {
     label: "Infrastructure",
-    primary: ["Docker", "AWS", "Microservices"],
-    secondary: ["MongoDB", "Firebase", "CI/CD"],
-    tertiary: ["SES", "SNS", "S3"],
+    primary: ["AWS", "Docker", "Microservices", "Lambda"],
+    secondary: ["S3", "SNS", "SQS", "CI/CD"],
+    tertiary: ["SES", "MongoDB", "Firebase"],
   },
   {
     label: "System Thinking",
@@ -30,7 +30,7 @@ const radarSkills = [
   { label: "API Design", value: 95 },
   { label: "Database", value: 85 },
   { label: "System Design", value: 80 },
-  { label: "DevOps/Cloud", value: 65 },
+  { label: "DevOps/Cloud", value: 72 },
   { label: "AI Integration", value: 70 },
 ];
 
@@ -61,7 +61,7 @@ export function Skills() {
       variants={stagger}
       className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
     >
-      <div className="mx-auto max-w-[1200px]">
+      <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
           <SectionLabel label="tech_stack" />
         </motion.div>
@@ -90,7 +90,7 @@ export function Skills() {
                   {group.primary.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-[rgba(0,255,135,0.2)] bg-accentDim px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-accent"
+                      className="border border-[color:var(--accent-soft)] bg-accentDim px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-accent"
                     >
                       {tag}
                     </span>
@@ -106,7 +106,7 @@ export function Skills() {
                   {group.tertiary.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-[rgba(255,255,255,0.05)] px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text3"
+                      className="border border-border px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text3"
                     >
                       {tag}
                     </span>
@@ -132,7 +132,12 @@ export function Skills() {
             </div>
 
             <div className="mt-6 overflow-hidden">
-              <svg viewBox="0 0 240 240" className="mx-auto h-[320px] w-full max-w-[320px]">
+              <svg
+                viewBox="0 0 240 240"
+                className="mx-auto h-[320px] w-full max-w-[320px]"
+                role="img"
+                aria-label="Capability shape radar showing strongest strengths in API design, database design, and system design."
+              >
                 {[25, 50, 75, 100].map((ring) => {
                   const points = radarSkills
                     .map((_, index) => {
@@ -146,7 +151,7 @@ export function Skills() {
                       key={ring}
                       points={points}
                       fill="none"
-                      stroke="rgba(255,255,255,0.08)"
+                      stroke="var(--border)"
                       strokeWidth="1"
                     />
                   );
@@ -163,7 +168,7 @@ export function Skills() {
                         y1="120"
                         x2={endPoint.x}
                         y2={endPoint.y}
-                        stroke="rgba(255,255,255,0.08)"
+                        stroke="var(--border)"
                         strokeWidth="1"
                       />
                       <text
@@ -184,7 +189,7 @@ export function Skills() {
 
                 <polygon
                   points={polygonPoints}
-                  fill="rgba(0,255,135,0.15)"
+                  fill="var(--accent-dim)"
                   stroke="var(--accent)"
                   strokeWidth="1.5"
                 />

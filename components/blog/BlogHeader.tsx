@@ -24,7 +24,7 @@ export default function BlogHeader({ post }: Props) {
   return (
     <header className="mb-12 border-b border-border pb-10">
       <div className="mb-5 flex flex-wrap items-center gap-3">
-        <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
+        <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-[color:var(--text-meta)]">
           {new Date(post.date).toLocaleDateString("en-IN", {
             day: "numeric",
             month: "long",
@@ -43,7 +43,7 @@ export default function BlogHeader({ post }: Props) {
         {post.title}
       </h1>
 
-      <p className="body-text mt-5 max-w-2xl text-lg font-normal text-text2">
+      <p className="body-text mt-5 max-w-3xl text-[1.05rem] font-normal leading-[1.86] text-[color:var(--text-2-strong)] md:text-lg">
         {post.description}
       </p>
 
@@ -52,7 +52,7 @@ export default function BlogHeader({ post }: Props) {
           <a
             key={tag}
             href={`/blog?tag=${encodeURIComponent(tag)}`}
-            className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2 transition-colors duration-200 hover:border-[rgba(0,255,135,0.3)] hover:text-accent"
+            className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)] transition-colors duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
           >
             {tag}
           </a>

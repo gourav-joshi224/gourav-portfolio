@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/lib/config";
+import { getAllPosts, getValidDate } from "@/lib/posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -15,19 +16,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogRoutes: MetadataRoute.Sitemap = [];
 
   try {
-    const { getAllPosts } = await import("@/lib/posts");
-    const posts = await getAllPosts();
+    const posts = getAllPosts();
+    const latestPostDate = posts[0] ? getValidDate(posts[0].date) : null;
 
     blogRoutes = posts.map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
+      lastModified: getValidDate(post.date) || new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     }));
 
     blogRoutes.unshift({
       url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
+      lastModified: latestPostDate || new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     });

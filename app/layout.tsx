@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 
+import { MotionProvider } from "@/components/MotionProvider";
 import { SITE_HANDLE, SITE_NAME, SITE_URL } from "@/lib/config";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -100,9 +103,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${jakarta.variable} ${mono.variable}`}
     >
       <body className="min-h-screen overflow-x-hidden bg-bg text-text1 antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -125,10 +135,6 @@ export default function RootLayout({
                 "AWS",
                 "Redis",
               ],
-              worksFor: {
-                "@type": "Organization",
-                name: "Unthinkable Solutions",
-              },
               alumniOf: [
                 {
                   "@type": "CollegeOrUniversity",
@@ -140,15 +146,15 @@ export default function RootLayout({
                 },
               ],
               sameAs: [
-                "https://www.linkedin.com/in/gourav-joshi",
-                "https://github.com/YOUR_GITHUB_HANDLE",
+                "https://www.linkedin.com/in/gourav-joshi-86ba722b1",
+                "https://github.com/gourav-joshi224",
               ],
               email: "gouravjoshi615@gmail.com",
               identifier: SITE_HANDLE,
             }),
           }}
         />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

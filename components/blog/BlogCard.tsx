@@ -56,7 +56,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">
                     Featured post
                   </div>
-                  <div className="mt-3 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+                  <div className="mt-3 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)]">
                     {new Date(post.date).toLocaleDateString("en-IN", {
                       day: "numeric",
                       month: "short",
@@ -65,14 +65,17 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   </div>
                 </div>
 
-                <div className="font-display text-7xl font-semibold leading-none tracking-[-0.08em] text-[rgba(255,255,255,0.09)]">
+                <div
+                  className="font-display text-7xl font-semibold leading-none tracking-[-0.08em]"
+                  style={{ color: "var(--hero-mark)" }}
+                >
                   {String(order).padStart(2, "0")}
                 </div>
               </div>
 
               <div className="p-6 md:p-8">
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)]">
                     {new Date(post.date).toLocaleDateString("en-IN", {
                       day: "numeric",
                       month: "short",
@@ -91,7 +94,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   {post.title}
                 </h2>
 
-                <p className="body-text mt-4 max-w-2xl text-base font-normal text-text2">
+                <p className="body-text mt-4 max-w-2xl text-base font-normal leading-[1.88] text-[color:var(--text-2-strong)]">
                   {post.description}
                 </p>
 
@@ -99,14 +102,14 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
+                      className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-8 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3 transition-colors duration-200 group-hover:text-accent">
+                <div className="mt-8 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-[color:var(--text-meta)] transition-colors duration-200 group-hover:text-accent">
                   Read post →
                 </div>
               </div>
@@ -116,7 +119,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
               <div className="mb-5 h-px w-10 bg-accent" />
 
               <div className="mb-4 flex items-center gap-3">
-                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)]">
                   {new Date(post.date).toLocaleDateString("en-IN", {
                     day: "numeric",
                     month: "short",
@@ -135,7 +138,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                 {post.title}
               </h2>
 
-              <p className="body-text mt-4 line-clamp-3 text-sm font-normal text-text2">
+              <p className="body-text mt-4 line-clamp-3 text-[0.97rem] font-normal leading-[1.82] text-[color:var(--text-2-strong)]">
                 {post.description}
               </p>
 
@@ -143,7 +146,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                 {post.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
+                    className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
                   >
                     {tag}
                   </span>
@@ -151,10 +154,10 @@ export default function BlogCard({ post, index, featured = false, order }: Props
               </div>
 
               <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
-                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
+                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)]">
                   Read post
                 </span>
-                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3 transition-all duration-200 group-hover:translate-x-1 group-hover:text-accent">
+                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)] transition-all duration-200 group-hover:translate-x-1 group-hover:text-accent">
                   →
                 </span>
               </div>
