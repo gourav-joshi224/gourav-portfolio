@@ -92,17 +92,25 @@ This is the architectural jump many teams underestimate. The model is rarely the
 
 ```mermaid
 stateDiagram-v2
-  [*] --> Queued
-  Queued --> Planning
-  Planning --> ToolCall
-  ToolCall --> Evaluate
-  Evaluate --> ToolCall: needs another step
-  Evaluate --> AwaitApproval: risky action
-  AwaitApproval --> ToolCall: approved
-  Evaluate --> Completed: answer is sufficient
-  Evaluate --> Failed: retries exhausted
-  Completed --> [*]
-  Failed --> [*]
+    [*] --> Queued
+    state "Queued " as Queued
+    state "Planning " as Planning
+    state "ToolCall " as ToolCall
+    state "Evaluate " as Evaluate
+    state "AwaitApproval " as AwaitApproval
+    state "Completed " as Completed
+    state "Failed " as Failed
+
+    Queued --> Planning
+    Planning --> ToolCall
+    ToolCall --> Evaluate
+    Evaluate --> ToolCall : needs another step
+    Evaluate --> AwaitApproval : risky action
+    AwaitApproval --> ToolCall : approved
+    Evaluate --> Completed : answer is sufficient
+    Evaluate --> Failed : retries exhausted
+    Completed --> [*]
+    Failed --> [*]
 ```
 
 **Takeaway:** Agent loops become reliable only when each step is durable, bounded, and resumable.

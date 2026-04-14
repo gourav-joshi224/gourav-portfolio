@@ -549,6 +549,23 @@ a {
   margin: 3rem 0;
 }
 
+/*
+ * ─── MERMAID DIAGRAM SHELL ───────────────────────────────────────────────────
+ * ROOT CAUSE OF CLIPPING:
+ * Mermaid sizes `foreignObject` (and the rect behind it) based on text measured
+ * at render time. It uses getBBox() on a live SVG node. When CSS later applies
+ * a wider font (Plus Jakarta Sans), the rendered text is wider than the
+ * `foreignObject` width. `foreignObject` defaults to `overflow: hidden` so
+ * the extra characters are clipped — producing "ToolCa" instead of "ToolCall".
+ *
+ * THE FIX:
+ * Set `overflow: visible` on every SVG container and `foreignObject` inside
+ * `.mermaid-shell`. This removes the clip without touching Mermaid internals,
+ * without per-page patches, and works for every diagram type in every blog post.
+ * The .mermaid-shell container has `overflow-x: auto` so wide diagrams can still
+ * scroll horizontally — nothing breaks.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
 .mermaid-shell {
   border: 1px solid var(--border);
   background:
@@ -556,14 +573,65 @@ a {
     var(--surface);
   box-shadow: 0 18px 46px var(--panel-shadow);
   margin: 2rem 0;
-  overflow-x: auto;
+  overflow-x: auto; /* wide diagrams scroll instead of squashing */
   padding: 1.5rem;
+  border-radius: 0.5rem;
 }
 
+/* ── Core overflow fixes ─────────────────────────────────────────────────── */
+
+/* The SVG root itself — never clip it */
 .mermaid-shell svg {
   display: block;
   height: auto;
-  max-width: 100%;
+  overflow: visible !important;
+}
+
+/*
+ * This is the primary fix. Every foreignObject Mermaid generates for a label
+ * must be visible. The default browser behavior for foreignObject is overflow:
+ * hidden (or whatever the spec's initial value is, which many browsers treat as
+ * hidden). Without this, any label wider than the measured box is invisible.
+ */
+.mermaid-shell svg foreignObject {
+  overflow: visible !important;
+}
+
+/*
+ * The div and span inside a foreignObject label must also not clip.
+ * Mermaid injects something like:
+ *   <foreignObject><div><span class="nodeLabel">ToolCall</span></div></foreignObject>
+ * Any of these layers can add overflow:hidden. Remove all of them.
+ */
+.mermaid-shell svg foreignObject > * {
+  overflow: visible !important;
+}
+
+/* ── Visual font upgrade (safe — applied after layout) ───────────────────── */
+
+/*
+ * Switch SVG text to the brand font. In SVG text mode (most diagram types),
+ * Mermaid renders <text> / <tspan> elements. We can swap the font here because
+ * SVG text layout is dictated by the element's x/y position — not by a box
+ * constraint — so a different font width just makes the text render wider
+ * without any clipping.
+ */
+.mermaid-shell svg text,
+.mermaid-shell svg tspan {
+  font-family: var(--font-display), "trebuchet ms", sans-serif !important;
+}
+
+/*
+ * For htmlLabels / foreignObject labels, apply brand font to the span/div.
+ * This is the part visible to the user. Because overflow is now visible,
+ * the wider text is fully shown even if it extends beyond the rect.
+ */
+.mermaid-shell .nodeLabel,
+.mermaid-shell .edgeLabel,
+.mermaid-shell .cluster-label {
+  font-family: var(--font-display), "trebuchet ms", sans-serif !important;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 @media (max-width: 640px) {
