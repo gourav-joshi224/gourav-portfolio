@@ -65,7 +65,7 @@ export function Hero() {
         }}
       />
 
-      <div className="site-shell relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)]">
+      <div className="site-shell relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)]">
         <div className="max-w-[680px]">
           <motion.div
             variants={fadeUp}
@@ -115,7 +115,7 @@ export function Hero() {
             className="mt-8 flex flex-wrap items-start gap-6"
           >
             {stats.map((stat, index) => (
-              <div key={stat.label} className="min-w-[96px]">
+              <div key={stat.label} className="min-w-[80px]">
                 <div
                   className={`font-display text-3xl font-bold leading-none ${
                     index === 0 ? "text-accent" : "text-text1"
@@ -130,7 +130,7 @@ export function Hero() {
             ))}
           </motion.div>
 
-          <div className="mb-0 mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="mb-0 mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
             <span className="font-mono text-xs uppercase tracking-widest text-text3">
               Shipped for →
             </span>
@@ -178,7 +178,7 @@ export function Hero() {
 
         <motion.div variants={fadeUp} custom={6} className="site-panel relative overflow-hidden p-6 lg:p-8">
           <div className="accent-grid absolute inset-x-8 top-8 h-40 opacity-60" />
-          <div className="relative min-h-[420px]">
+          <div className="relative min-h-[320px] sm:min-h-[420px]">
             <div
               className="pointer-events-none absolute inset-x-0 top-0 font-display text-[8rem] font-semibold leading-none tracking-[-0.08em] sm:text-[9rem]"
               style={{ color: "var(--hero-mark)" }}

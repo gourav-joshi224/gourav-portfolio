@@ -51,7 +51,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
         >
           {featured ? (
             <>
-              <div className="flex min-h-[240px] items-end justify-between border-b border-border bg-surface2 p-6 lg:min-h-full lg:border-b-0 lg:border-r">
+              <div className="flex min-h-[160px] items-end justify-between border-b border-border bg-surface2 p-5 sm:min-h-[240px] sm:p-6 lg:min-h-full lg:border-b-0 lg:border-r">
                 <div>
                   <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">
                     Featured post
@@ -90,7 +90,7 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   </span>
                 </div>
 
-                <h2 className="font-display text-[clamp(2rem,3.4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-text1 transition-colors duration-200">
+                <h2 className="font-display text-[clamp(1.6rem,3.4vw,3rem)] font-semibold leading-[1.06] tracking-[-0.04em] text-text1 transition-colors duration-200">
                   {post.title}
                 </h2>
 

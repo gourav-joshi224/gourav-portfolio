@@ -40,7 +40,7 @@ function extractMermaidChart(children: ReactNode) {
 
 export default function BlogBody({ source }: Props) {
   return (
-    <div className="site-panel prose-blog px-6 py-7 md:px-8 md:py-9">
+    <div className="site-panel prose-blog px-4 py-6 sm:px-6 sm:py-7 md:px-8 md:py-9">
       <MDXRemote
         source={source}
         components={{

@@ -91,7 +91,7 @@ export function Experience() {
         <motion.h2
           variants={fadeUp}
           custom={1}
-          className="mt-6 font-display text-[clamp(2.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
+          className="mt-6 font-display text-[clamp(1.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
         >
           Experience with measurable output.
         </motion.h2>
@@ -113,10 +113,10 @@ export function Experience() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenEntry((current) => (current === entry.id ? "" : entry.id))}
-                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
+                  className="flex w-full items-start justify-between gap-4 p-5 text-left sm:items-center sm:p-6"
                 >
                   <div>
-                    <div className="font-display text-2xl font-semibold tracking-[-0.03em] text-text1">
+                    <div className="font-display text-lg font-semibold tracking-[-0.03em] text-text1 sm:text-2xl">
                       {entry.role}
                     </div>
                     <div className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-accent">
@@ -124,8 +124,8 @@ export function Experience() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-5">
-                    <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2">
+                  <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+                    <span className="hidden font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 sm:inline">
                       {entry.period}
                     </span>
                     <span

@@ -68,7 +68,33 @@ export default function MermaidDiagram({ chart }: Props) {
         mermaid.initialize({
           startOnLoad: false,
           securityLevel: "loose",
-          theme,
+          theme: theme === "dark" ? "dark" : "default",
+          themeVariables: theme === "dark" ? {
+            // General
+            background: 'transparent',
+            primaryColor: '#121821', // surface-2
+            primaryTextColor: '#edf5f7', // text-1
+            primaryBorderColor: 'rgba(188, 207, 223, 0.2)', // border-strong
+            lineColor: '#8896a1', // text-3
+            secondaryColor: '#0d1116', // surface
+            tertiaryColor: '#07090c', // bg
+            // Flowchart & Nodes
+            nodeBorder: 'rgba(188, 207, 223, 0.2)',
+            mainBkg: '#121821',
+            edgeLabelBackground: '#0d1116',
+            // Sequence Diagram
+            actorBkg: '#121821',
+            actorBorder: 'rgba(188, 207, 223, 0.2)',
+            actorTextColor: '#edf5f7',
+            actorLineColor: 'rgba(188, 207, 223, 0.2)',
+            signalColor: '#c4cfd6',
+            signalTextColor: '#edf5f7',
+            noteBkgColor: '#121821',
+            noteBorderColor: 'rgba(188, 207, 223, 0.2)',
+            // State Diagram
+            labelBackgroundColor: '#0d1116',
+            labelTextColor: '#edf5f7',
+          } : undefined,
           // ─── DO NOT set fontFamily here ───────────────────────────────────────
           // Letting Mermaid use its default ("trebuchet ms", verdana, arial)
           // guarantees that measurement and rendering use the same available font.

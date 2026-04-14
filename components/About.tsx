@@ -40,7 +40,7 @@ export function About() {
         <motion.h2
           variants={fadeUp}
           custom={1}
-          className="pull-quote mt-6 max-w-[680px] font-display text-[clamp(2.6rem,5vw,3.5rem)] font-bold text-text1"
+          className="pull-quote mt-6 max-w-[680px] font-display text-[clamp(1.6rem,5vw,3.5rem)] font-bold text-text1"
         >
           I&apos;ve shipped backend systems for government AI platforms, trade
           fair booking engines, and AI interview tools. I care about the code

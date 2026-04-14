@@ -113,9 +113,9 @@ export default function BlogPostPage({
   };
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-6 pb-24 pt-28 md:px-8">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-4 pb-24 pt-24 sm:px-6 sm:pt-28 md:px-8">
       <div className="mx-auto max-w-[1320px]">
-        <div className="mb-12 flex items-center justify-between gap-4 border-b border-border pb-5">
+        <div className="mb-8 flex items-center justify-between gap-4 border-b border-border pb-4 sm:mb-12 sm:pb-5">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 transition-colors duration-200 hover:text-accent"

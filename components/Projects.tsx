@@ -68,7 +68,7 @@ export function Projects() {
         <motion.h2
           variants={fadeUp}
           custom={1}
-          className="mt-6 font-display text-[clamp(2.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
+          className="mt-6 font-display text-[clamp(1.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
         >
           Systems with real stakes.
         </motion.h2>
@@ -93,7 +93,7 @@ export function Projects() {
                 <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-text3">
                   {project.number} /
                 </div>
-                <h3 className="mt-3 font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-text1">
+                <h3 className="mt-3 font-display text-[clamp(1.5rem,4vw,3rem)] font-semibold leading-[1.06] tracking-[-0.04em] text-text1">
                   {project.name}
                 </h3>
                 <div className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-accent">

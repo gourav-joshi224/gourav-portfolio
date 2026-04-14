@@ -39,11 +39,11 @@ export default function BlogHeader({ post }: Props) {
         </span>
       </div>
 
-      <h1 className="font-display text-[clamp(2.7rem,5vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.05em] text-text1">
+      <h1 className="font-display text-[clamp(1.8rem,5vw,4.5rem)] font-bold leading-[1.04] tracking-[-0.04em] text-text1">
         {post.title}
       </h1>
 
-      <p className="body-text mt-5 max-w-3xl text-[1.05rem] font-normal leading-[1.86] text-[color:var(--text-2-strong)] md:text-lg">
+      <p className="body-text mt-5 max-w-3xl text-[0.97rem] font-normal leading-[1.82] text-[color:var(--text-2-strong)] sm:text-[1.05rem] sm:leading-[1.86] md:text-lg">
         {post.description}
       </p>
 

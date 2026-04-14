@@ -34,7 +34,7 @@ const radarSkills = [
   { label: "AI Integration", value: 70 },
 ];
 
-function getRadarPoint(index: number, value: number, radius = 92, center = 120) {
+function getRadarPoint(index: number, value: number, radius = 92, center = 140) {
   const angle = (Math.PI * 2 * index) / radarSkills.length - Math.PI / 2;
   const scaledRadius = (radius * value) / 100;
 
@@ -68,7 +68,7 @@ export function Skills() {
         <motion.h2
           variants={fadeUp}
           custom={1}
-          className="mt-6 font-display text-[clamp(2.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
+          className="mt-6 font-display text-[clamp(1.6rem,5vw,3.5rem)] font-bold tracking-[-0.04em] text-text1"
         >
           What I use to make systems hold up.
         </motion.h2>
@@ -133,7 +133,7 @@ export function Skills() {
 
             <div className="mt-6 overflow-hidden">
               <svg
-                viewBox="0 0 240 240"
+                viewBox="0 0 280 280"
                 className="mx-auto h-[320px] w-full max-w-[320px]"
                 role="img"
                 aria-label="Capability shape radar showing strongest strengths in API design, database design, and system design."
@@ -164,8 +164,8 @@ export function Skills() {
                   return (
                     <g key={skill.label}>
                       <line
-                        x1="120"
-                        y1="120"
+                        x1="140"
+                        y1="140"
                         x2={endPoint.x}
                         y2={endPoint.y}
                         stroke="var(--border)"
@@ -175,11 +175,12 @@ export function Skills() {
                         x={labelPoint.x}
                         y={labelPoint.y}
                         fill="var(--text-3)"
-                        fontSize="8"
+                        fontSize="7.5"
                         fontFamily="var(--font-mono)"
                         textAnchor={
-                          labelPoint.x > 128 ? "start" : labelPoint.x < 112 ? "end" : "middle"
+                          labelPoint.x > 148 ? "start" : labelPoint.x < 132 ? "end" : "middle"
                         }
+                        className="sm:text-[8px]"
                       >
                         {skill.label}
                       </text>

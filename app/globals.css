@@ -276,6 +276,16 @@ a {
   line-height: 1.9;
 }
 
+/* ─── Mobile-first typography scale ─────────────────────────────────────────
+ * Ensures readable sizes on phones without requiring pinch-to-zoom.
+ * These overrides use max-width so desktop styles are untouched.
+ * ──────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .body-text {
+    line-height: 1.78;
+  }
+}
+
 .site-panel {
   border: 1px solid var(--border);
   background:
@@ -452,14 +462,27 @@ a {
   font-size: 1.04rem;
 }
 
+@media (max-width: 640px) {
+  .prose-blog {
+    font-size: 1rem;
+  }
+}
+
 .prose-blog h2 {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.85rem, 2vw, 2.45rem);
+  font-size: clamp(1.45rem, 4.5vw, 2.45rem);
   font-weight: 650;
   letter-spacing: -0.03em;
   color: var(--text-1);
   margin-top: 3.3rem;
   margin-bottom: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .prose-blog h2 {
+    margin-top: 2.4rem;
+    margin-bottom: 0.9rem;
+  }
 }
 
 .prose-blog h3 {
@@ -476,9 +499,16 @@ a {
   font-family: var(--font-display), sans-serif;
   color: var(--text-2-strong);
   line-height: 1.92;
-  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.08rem);
+  font-size: clamp(0.97rem, 0.92rem + 0.25vw, 1.08rem);
   font-weight: 430;
   margin-bottom: 1.6rem;
+}
+
+@media (max-width: 640px) {
+  .prose-blog p {
+    line-height: 1.82;
+    margin-bottom: 1.3rem;
+  }
 }
 
 .prose-blog strong {
@@ -515,6 +545,23 @@ a {
   margin: 2rem 0;
 }
 
+@media (max-width: 640px) {
+  .prose-blog pre {
+    font-size: 0.8rem;
+    padding: 1rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .prose-blog code {
+    font-size: 0.82rem;
+    word-break: break-word;
+  }
+}
+
 .prose-blog pre code {
   border: 0;
   background: transparent;
@@ -541,6 +588,18 @@ a {
   color: var(--text-2-strong);
   font-style: italic;
   margin: 2.25rem 0;
+}
+
+@media (max-width: 640px) {
+  .prose-blog blockquote {
+    padding: 0.85rem 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .prose-blog ul,
+  .prose-blog ol {
+    padding-left: 1.25rem;
+  }
 }
 
 .prose-blog hr {
@@ -576,6 +635,17 @@ a {
   overflow-x: auto; /* wide diagrams scroll instead of squashing */
   padding: 1.5rem;
   border-radius: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .mermaid-shell {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding: 1rem 0.75rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
 }
 
 /* ── Core overflow fixes ─────────────────────────────────────────────────── */
@@ -634,11 +704,7 @@ a {
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  .prose-blog pre {
-    padding: 1rem;
-  }
-}
+/* mobile prose pre override moved above to consolidate */
 
 @media (prefers-reduced-motion: reduce) {
   html {

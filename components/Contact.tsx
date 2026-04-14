@@ -39,7 +39,7 @@ export function Contact() {
             <motion.h2
               variants={fadeUp}
               custom={1}
-              className="font-display text-[clamp(2.8rem,6vw,5rem)] font-bold leading-[0.96] tracking-[-0.05em] text-text1"
+              className="font-display text-[clamp(1.8rem,6vw,5rem)] font-bold leading-[1.02] tracking-[-0.04em] text-text1"
             >
               Let&apos;s build backend systems with fewer surprises.
             </motion.h2>

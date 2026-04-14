@@ -74,9 +74,9 @@ export default function BlogPage({ searchParams }: Props) {
   }));
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-6 pb-24 pt-28 md:px-8">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-4 pb-24 pt-24 sm:px-6 sm:pt-28 md:px-8">
       <div className="site-shell mx-auto">
-        <div className="mb-10 flex items-center justify-between gap-4 border-b border-border pb-5">
+        <div className="mb-8 flex items-center justify-between gap-4 border-b border-border pb-4 sm:mb-10 sm:pb-5">
           <Link
             href="/"
             className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 transition-colors duration-200 hover:text-accent"
@@ -92,10 +92,10 @@ export default function BlogPage({ searchParams }: Props) {
 
         <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <h1 className="font-display text-[clamp(3rem,6vw,5rem)] font-bold tracking-[-0.05em] text-text1">
+            <h1 className="font-display text-[clamp(2.2rem,6vw,5rem)] font-bold tracking-[-0.05em] text-text1">
               Writing.
             </h1>
-            <p className="body-text mt-4 max-w-2xl text-[1.02rem] font-normal leading-[1.86] text-[color:var(--text-2-strong)] md:text-base">
+            <p className="body-text mt-3 max-w-2xl text-[0.95rem] font-normal leading-[1.78] text-[color:var(--text-2-strong)] sm:mt-4 sm:text-[1.02rem] sm:leading-[1.86] md:text-base">
               {totalPosts} post{totalPosts !== 1 ? "s" : ""} on backend
               engineering, system design, and the production lessons behind the
               work.
