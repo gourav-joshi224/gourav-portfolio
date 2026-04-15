@@ -59,7 +59,7 @@ export function Projects() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 bg-transparent px-6 py-28 md:px-8 md:scroll-mt-28"
+      className="scroll-mt-24 bg-transparent px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-28 md:scroll-mt-28"
     >
       <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
@@ -81,13 +81,13 @@ export function Projects() {
           systems.
         </motion.p>
 
-        <div className="mt-14">
+        <div className="mt-10 sm:mt-12 md:mt-14">
           {projects.map((project, index) => (
             <motion.article
               key={project.name}
               variants={fadeUp}
               custom={index + 3}
-              className="group grid gap-8 border-t border-border py-12 transition-colors duration-300 hover:border-[color:var(--border-hover)] lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]"
+              className="group grid gap-6 border-t border-border py-10 transition-colors duration-300 hover:border-[color:var(--border-hover)] sm:gap-8 sm:py-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]"
             >
               <div>
                 <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-text3">
@@ -99,15 +99,15 @@ export function Projects() {
                 <div className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-accent">
                   {project.role}
                 </div>
-                <p className="body-text mt-5 max-w-[540px] text-base font-normal text-text2">
+                <p className="body-text mt-5 max-w-[540px] text-base font-normal leading-[1.82] text-text2">
                   {project.description}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
+                      className="min-h-8 border border-border px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
                     >
                       {tag}
                     </span>
@@ -132,9 +132,9 @@ export function Projects() {
                 </div>
               </div>
 
-              <div className="site-panel border-l-2 border-l-transparent p-6 transition-all duration-300 group-hover:translate-x-px group-hover:border-l-accent">
+              <div className="site-panel border-l-2 border-l-transparent p-5 transition-all duration-300 group-hover:translate-x-px group-hover:border-l-accent sm:p-6">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-4">
+                  <div className="flex flex-col gap-2 border-b border-border pb-4 sm:flex-row sm:items-center sm:justify-between">
                     <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
                       Scale
                     </span>
@@ -142,7 +142,7 @@ export function Projects() {
                       {project.scale}
                     </span>
                   </div>
-                  <div className="flex items-center justify-between border-b border-border pb-4">
+                  <div className="flex flex-col gap-2 border-b border-border pb-4 sm:flex-row sm:items-center sm:justify-between">
                     <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
                       Role
                     </span>
@@ -150,7 +150,7 @@ export function Projects() {
                       {project.projectRole}
                     </span>
                   </div>
-                  <div className="flex items-center justify-between border-b border-border pb-4">
+                  <div className="flex flex-col gap-2 border-b border-border pb-4 sm:flex-row sm:items-center sm:justify-between">
                     <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
                       Stack
                     </span>

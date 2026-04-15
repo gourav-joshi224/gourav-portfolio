@@ -113,7 +113,11 @@ export default function BlogPostPage({
   };
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-4 pb-24 pt-24 sm:px-6 sm:pt-28 md:px-8">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="min-h-screen bg-bg px-3 pb-20 pt-20 sm:px-6 sm:pb-24 sm:pt-24 md:px-8 md:pt-28"
+    >
       <div className="mx-auto max-w-[1320px]">
         <div className="mb-8 flex items-center justify-between gap-4 border-b border-border pb-4 sm:mb-12 sm:pb-5">
           <Link
@@ -126,11 +130,11 @@ export default function BlogPostPage({
         </div>
 
         <article className="w-full">
-          <div className="mx-auto w-full max-w-6xl">
+          <div className="mx-auto w-full max-w-5xl">
             <BlogHeader post={post} />
           </div>
 
-          <div className="mx-auto w-full max-w-[70rem]">
+          <div className="mx-auto w-full max-w-[68rem]">
             <BlogBody source={post.content} />
           </div>
 
@@ -139,7 +143,7 @@ export default function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
           />
 
-          <div className="mx-auto mt-16 w-full max-w-[64rem] border-t border-border pt-8">
+          <div className="mx-auto mt-14 w-full max-w-[64rem] border-t border-border pt-8">
             <Link
               href="/blog"
               className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 transition-colors duration-200 hover:text-accent"

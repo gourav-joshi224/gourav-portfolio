@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border px-6 py-8 md:px-8">
+    <footer className="border-t border-border px-4 py-8 sm:px-6 md:px-8">
       <div className="site-shell mx-auto flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <p className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-text3">
           © 2026 Gourav Joshi

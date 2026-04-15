@@ -74,7 +74,11 @@ export default function BlogPage({ searchParams }: Props) {
   }));
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg px-4 pb-24 pt-24 sm:px-6 sm:pt-28 md:px-8">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="min-h-screen bg-bg px-3 pb-20 pt-20 sm:px-6 sm:pb-24 sm:pt-24 md:px-8 md:pt-28"
+    >
       <div className="site-shell mx-auto">
         <div className="mb-8 flex items-center justify-between gap-4 border-b border-border pb-4 sm:mb-10 sm:pb-5">
           <Link
@@ -90,12 +94,12 @@ export default function BlogPage({ searchParams }: Props) {
           {"// blog"}
         </p>
 
-        <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div className="mb-10 flex flex-col gap-6 sm:mb-12 md:flex-row md:items-end md:justify-between">
           <div>
             <h1 className="font-display text-[clamp(2.2rem,6vw,5rem)] font-bold tracking-[-0.05em] text-text1">
               Writing.
             </h1>
-            <p className="body-text mt-3 max-w-2xl text-[0.95rem] font-normal leading-[1.78] text-[color:var(--text-2-strong)] sm:mt-4 sm:text-[1.02rem] sm:leading-[1.86] md:text-base">
+            <p className="body-text mt-3 max-w-2xl text-base font-normal leading-[1.82] text-[color:var(--text-2-strong)] sm:mt-4 sm:text-[1.05rem] sm:leading-[1.88]">
               {totalPosts} post{totalPosts !== 1 ? "s" : ""} on backend
               engineering, system design, and the production lessons behind the
               work.
@@ -111,7 +115,7 @@ export default function BlogPage({ searchParams }: Props) {
             <p className="mt-2">no posts found.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post, index) => (
               <BlogCard
                 key={post.slug}

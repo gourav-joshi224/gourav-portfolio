@@ -30,7 +30,7 @@ export function About() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
+      className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-28 md:scroll-mt-28"
     >
       <div className="mx-auto max-w-[900px]">
         <motion.div variants={fadeUp}>
@@ -47,20 +47,20 @@ export function About() {
           that runs behind the scenes.
         </motion.h2>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
+        <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-10 md:mt-14 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
           <motion.div variants={fadeUp} custom={2}>
-            <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
+            <p className="body-text mb-5 border-l-2 border-border pl-4 text-base font-normal leading-[1.82] text-text2 sm:mb-6">
               I design and build backend infrastructure, from NestJS
               microservices to PostgreSQL schemas and event-driven pipelines,
               for systems that need to stay up.
             </p>
-            <p className="body-text mb-6 border-l-2 border-border pl-4 text-base font-normal text-text2">
+            <p className="body-text mb-5 border-l-2 border-border pl-4 text-base font-normal leading-[1.82] text-text2 sm:mb-6">
               I&apos;m obsessed with the invisible: latency that nobody notices,
               database queries that never timeout, APIs that fail gracefully.
               Clean code isn&apos;t aesthetic preference; it&apos;s risk
               management.
             </p>
-            <p className="body-text border-l-2 border-border pl-4 text-base font-normal text-text2">
+            <p className="body-text border-l-2 border-border pl-4 text-base font-normal leading-[1.82] text-text2">
               I&apos;m also mid-way through an M.Tech at BITS Pilani, which
               means I spend evenings reading distributed systems papers instead
               of watching Netflix. Make of that what you will.

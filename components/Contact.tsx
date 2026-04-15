@@ -28,13 +28,13 @@ export function Contact() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
+      className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-28 md:scroll-mt-28"
     >
       <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
           <SectionLabel label="contact" />
         </motion.div>
-        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)]">
+        <div className="mt-8 grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)]">
           <div>
             <motion.h2
               variants={fadeUp}
@@ -46,7 +46,7 @@ export function Contact() {
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="body-text mt-5 max-w-xl text-base font-normal text-text2"
+              className="body-text mt-5 max-w-xl text-base font-normal leading-[1.82] text-text2"
             >
               Open to backend roles, freelance builds, and architecture problems
               where reliability, performance, and clean design still matter.
@@ -61,7 +61,7 @@ export function Contact() {
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="w-fit border-b border-transparent font-mono text-sm text-text2 transition-colors duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
+                  className="w-fit break-all border-b border-transparent font-mono text-sm text-text2 transition-colors duration-200 hover:border-[color:var(--border-hover)] hover:text-accent"
                 >
                   {link.label}
                 </motion.a>
@@ -69,7 +69,7 @@ export function Contact() {
             </div>
           </div>
 
-          <motion.div variants={fadeUp} custom={6} className="site-panel p-6">
+          <motion.div variants={fadeUp} custom={6} className="site-panel p-5 sm:p-6">
             <div className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
               What I&apos;m open to
             </div>

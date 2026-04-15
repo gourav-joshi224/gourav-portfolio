@@ -82,7 +82,7 @@ export function Experience() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
+      className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-28 md:scroll-mt-28"
     >
       <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
@@ -96,7 +96,7 @@ export function Experience() {
           Experience with measurable output.
         </motion.h2>
 
-        <div className="mt-14 space-y-4">
+        <div className="mt-10 space-y-4 sm:mt-12 md:mt-14">
           {entries.map((entry, index) => {
             const isOpen = openEntry === entry.id;
             const panelId = `${entry.id}-panel`;
@@ -121,6 +121,9 @@ export function Experience() {
                     </div>
                     <div className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-accent">
                       {entry.company}
+                    </div>
+                    <div className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text2 sm:hidden">
+                      {entry.period}
                     </div>
                   </div>
 
@@ -149,7 +152,7 @@ export function Experience() {
                       className="overflow-hidden border-t border-border"
                     >
                       <div className="p-6 pt-5">
-                        <p className="body-text max-w-3xl text-base font-normal text-text2">
+                        <p className="body-text max-w-3xl text-base font-normal leading-[1.82] text-text2">
                           {entry.description}
                         </p>
 
@@ -159,7 +162,7 @@ export function Experience() {
                               {entry.bullets.map((bullet) => (
                                 <div key={bullet} className="flex items-start gap-3">
                                   <span className="mt-0.5 font-mono text-accent">›</span>
-                                  <p className="body-text text-base font-normal text-text2">
+                                  <p className="body-text text-base font-normal leading-[1.82] text-text2">
                                     {bullet}
                                   </p>
                                 </div>

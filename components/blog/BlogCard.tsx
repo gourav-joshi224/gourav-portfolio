@@ -46,12 +46,12 @@ export default function BlogCard({ post, index, featured = false, order }: Props
           className={`site-panel h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
             featured
               ? "grid lg:grid-cols-[minmax(240px,0.42fr)_minmax(0,0.58fr)]"
-              : "flex flex-col p-6"
+              : "flex flex-col p-5 sm:p-6"
           }`}
         >
           {featured ? (
             <>
-              <div className="flex min-h-[160px] items-end justify-between border-b border-border bg-surface2 p-5 sm:min-h-[240px] sm:p-6 lg:min-h-full lg:border-b-0 lg:border-r">
+              <div className="flex min-h-[144px] items-end justify-between border-b border-border bg-surface2 p-5 sm:min-h-[240px] sm:p-6 lg:min-h-full lg:border-b-0 lg:border-r">
                 <div>
                   <div className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">
                     Featured post
@@ -66,14 +66,14 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                 </div>
 
                 <div
-                  className="font-display text-7xl font-semibold leading-none tracking-[-0.08em]"
+                  className="font-display text-6xl font-semibold leading-none tracking-[-0.08em] sm:text-7xl"
                   style={{ color: "var(--hero-mark)" }}
                 >
                   {String(order).padStart(2, "0")}
                 </div>
               </div>
 
-              <div className="p-6 md:p-8">
+              <div className="p-5 sm:p-6 md:p-8">
                 <div className="mb-4 flex items-center gap-3">
                   <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[color:var(--text-meta)]">
                     {new Date(post.date).toLocaleDateString("en-IN", {
@@ -94,15 +94,15 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                   {post.title}
                 </h2>
 
-                <p className="body-text mt-4 max-w-2xl text-base font-normal leading-[1.88] text-[color:var(--text-2-strong)]">
+                <p className="body-text mt-4 max-w-2xl text-[1.02rem] font-normal leading-[1.86] text-[color:var(--text-2-strong)] sm:text-base sm:leading-[1.88]">
                   {post.description}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2.5">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
+                      className="min-h-8 border border-border bg-surface px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
                     >
                       {tag}
                     </span>
@@ -134,19 +134,19 @@ export default function BlogCard({ post, index, featured = false, order }: Props
                 </span>
               </div>
 
-              <h2 className="flex-1 font-display text-xl font-semibold leading-[1.08] tracking-[-0.03em] text-text1 transition-colors duration-200 group-hover:text-accent">
+              <h2 className="flex-1 font-display text-[1.35rem] font-semibold leading-[1.08] tracking-[-0.03em] text-text1 transition-colors duration-200 group-hover:text-accent sm:text-xl">
                 {post.title}
               </h2>
 
-              <p className="body-text mt-4 line-clamp-3 text-[0.97rem] font-normal leading-[1.82] text-[color:var(--text-2-strong)]">
+              <p className="body-text mt-4 line-clamp-3 text-base font-normal leading-[1.82] text-[color:var(--text-2-strong)]">
                 {post.description}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2.5">
                 {post.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
+                    className="min-h-8 border border-border bg-surface px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-[color:var(--chip-text)]"
                   >
                     {tag}
                   </span>

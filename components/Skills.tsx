@@ -59,7 +59,7 @@ export function Skills() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={stagger}
-      className="scroll-mt-24 px-6 py-28 md:px-8 md:scroll-mt-28"
+      className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-28 md:scroll-mt-28"
     >
       <div className="site-shell mx-auto">
         <motion.div variants={fadeUp}>
@@ -73,24 +73,24 @@ export function Skills() {
           What I use to make systems hold up.
         </motion.h2>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)]">
+        <div className="mt-10 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)]">
           <div className="space-y-8">
             {skillGroups.map((group, index) => (
               <motion.div
                 key={group.label}
                 variants={fadeUp}
                 custom={index + 2}
-                className="site-panel p-6"
+                className="site-panel p-5 sm:p-6"
               >
                 <div className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
                   {group.label}
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2.5">
                   {group.primary.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-[color:var(--accent-soft)] bg-accentDim px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-accent"
+                      className="min-h-8 border border-[color:var(--accent-soft)] bg-accentDim px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-accent"
                     >
                       {tag}
                     </span>
@@ -98,7 +98,7 @@ export function Skills() {
                   {group.secondary.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border bg-surface px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
+                      className="min-h-8 border border-border bg-surface px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text2"
                     >
                       {tag}
                     </span>
@@ -106,7 +106,7 @@ export function Skills() {
                   {group.tertiary.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-border px-3 py-1 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text3"
+                      className="min-h-8 border border-border px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-text3"
                     >
                       {tag}
                     </span>
@@ -126,7 +126,7 @@ export function Skills() {
             </motion.div>
           </div>
 
-          <motion.div variants={fadeUp} custom={6} className="site-panel p-6">
+          <motion.div variants={fadeUp} custom={6} className="site-panel p-5 sm:p-6">
             <div className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-text3">
               Capability shape
             </div>
