@@ -601,6 +601,8 @@ a {
 .mermaid-canvas {
   width: fit-content;
   min-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .mermaid-shell svg {
@@ -608,6 +610,7 @@ a {
   height: auto !important;
   max-width: none !important;
   overflow: visible;
+  margin: 0 auto;
 }
 
 .mermaid-shell .label,
